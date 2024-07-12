@@ -67,7 +67,7 @@ export const AdminCommunityDocuments: FC = () => {
 						<CharterSection />
 						<RulesSection />
 						<LawsSection />
-						<AdminControllers outLink={`/${AdminRoute.AdminHome}`} />
+						<AdminControllers outLink={AdminRoute.AdminHome} />
 					</form>
 				</FormProvider>
 			</AdminContent>

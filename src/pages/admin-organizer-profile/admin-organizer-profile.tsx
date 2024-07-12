@@ -47,7 +47,7 @@ export const AdminOrganizerProfile: FC = () => {
 						<DescSection />
 						<ContactsSection />
 						<AuthSection />
-						<AdminControllers outLink={`/${AdminRoute.AdminHome}`} variant='2' />
+						<AdminControllers outLink={AdminRoute.AdminHome} variant='2' />
 					</form>
 				</FormProvider>
 			</AdminContent>

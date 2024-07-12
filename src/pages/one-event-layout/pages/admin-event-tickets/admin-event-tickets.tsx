@@ -51,7 +51,7 @@ export const AdminEventTickets: FC = () => {
 			<FormProvider {...methods}>
 				<form onSubmit={methods.handleSubmit(onSubmit)} noValidate autoComplete='off'>
 					<TicketsSection />
-					<AdminControllers outLink={`/${AdminRoute.AdminHome}`} variant='2' />
+					<AdminControllers outLink={AdminRoute.AdminHome} variant='2' />
 				</form>
 			</FormProvider>
 		</AdminContent>

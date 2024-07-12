@@ -15,9 +15,7 @@ export const AuthSection = () => {
 				promptContent={
 					<span>
 						Логин нельзя изменить вручную. <br />
-						<Link to={`/${AdminRoute.AdminHome}`}>
-							Обратиться к администратору для смены логина
-						</Link>
+						<Link to={AdminRoute.AdminHome}>Обратиться к администратору для смены логина</Link>
 					</span>
 				}
 			>

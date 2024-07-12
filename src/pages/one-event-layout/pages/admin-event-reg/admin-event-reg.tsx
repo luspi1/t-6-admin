@@ -66,7 +66,7 @@ export const AdminEventReg: FC = () => {
 				<form onSubmit={methods.handleSubmit(onSubmit)} noValidate autoComplete='off'>
 					<RegVisitor />
 					<RegParticipant />
-					<AdminControllers outLink={`/${AdminRoute.AdminHome}`} variant='2' />
+					<AdminControllers outLink={AdminRoute.AdminHome} variant='2' />
 				</form>
 			</FormProvider>
 		</AdminContent>

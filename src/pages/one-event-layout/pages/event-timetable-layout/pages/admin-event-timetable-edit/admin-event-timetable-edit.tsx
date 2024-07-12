@@ -60,7 +60,7 @@ export const AdminEventTimetableEdit: FC = () => {
 			<FormProvider {...methods}>
 				<form onSubmit={methods.handleSubmit(onSubmit)} noValidate autoComplete='off'>
 					<TimetablesSection />
-					<AdminControllers outLink={`/${AdminRoute.AdminHome}`} variant='2' />
+					<AdminControllers outLink={AdminRoute.AdminHome} variant='2' />
 				</form>
 			</FormProvider>
 		</AdminContent>

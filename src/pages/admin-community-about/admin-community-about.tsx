@@ -61,7 +61,7 @@ export const AdminCommunityAbout: FC = () => {
 						<GallerySection />
 						<ArticleSection />
 						<DocumentsSection />
-						<AdminControllers outLink={`/${AdminRoute.AdminHome}`} />
+						<AdminControllers outLink={AdminRoute.AdminHome} />
 					</form>
 				</FormProvider>
 			</AdminContent>

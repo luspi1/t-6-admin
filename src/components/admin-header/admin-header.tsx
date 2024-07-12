@@ -13,7 +13,7 @@ export const AdminHeader: FC = () => {
 	return (
 		<header className={styles.adminHeader}>
 			<Container className={styles.adminHeaderContainer} $width='1870px'>
-				<Link className={styles.logoLink} to={`/${AdminRoute.AdminHome}`}>
+				<Link className={styles.logoLink} to={AdminRoute.AdminHome}>
 					Т-6
 				</Link>
 				<MainInput

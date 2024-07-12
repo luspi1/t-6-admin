@@ -59,7 +59,7 @@ export const AdminCommunityMediakit: FC = () => {
 						<TitleSection />
 						<BrandSection />
 						<PressSection />
-						<AdminControllers outLink={`/${AdminRoute.AdminHome}`} />
+						<AdminControllers outLink={AdminRoute.AdminHome} />
 					</form>
 				</FormProvider>
 			</AdminContent>

@@ -17,7 +17,7 @@ export const DateSection = () => {
 				promptContent={
 					<span>
 						Укажите дату и время начала и окончания события. Рекомендуем также использовать{' '}
-						<Link to={`/${AdminRoute.AdminHome}`}>раздел настроек «Расписание»</Link>
+						<Link to={AdminRoute.AdminHome}>раздел настроек «Расписание»</Link>
 					</span>
 				}
 				$margin='0'

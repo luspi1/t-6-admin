@@ -58,7 +58,7 @@ export const AdminEventLocations: FC = () => {
 			<FormProvider {...methods}>
 				<form onSubmit={methods.handleSubmit(onSubmit)} noValidate autoComplete='off'>
 					<LocationsSection />
-					<AdminControllers outLink={`/${AdminRoute.AdminHome}`} variant='2' />
+					<AdminControllers outLink={AdminRoute.AdminHome} variant='2' />
 				</form>
 			</FormProvider>
 		</AdminContent>

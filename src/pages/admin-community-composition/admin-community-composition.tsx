@@ -17,6 +17,7 @@ import { AdminControllers } from 'src/components/admin-controllers/admin-control
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 import styles from './index.module.scss'
+import { AdminRoute } from 'src/routes/admin-routes/consts'
 export const AdminCommunityComposition: FC = () => {
 	const methods = useForm<CompositionInputs>({
 		mode: 'onBlur',
@@ -60,7 +61,7 @@ export const AdminCommunityComposition: FC = () => {
 								Добавить еще один блок
 							</button>
 						</AdminSection>
-						<AdminControllers outLink={`/`} />
+						<AdminControllers outLink={AdminRoute.AdminHome} />
 					</form>
 				</FormProvider>
 			</AdminContent>

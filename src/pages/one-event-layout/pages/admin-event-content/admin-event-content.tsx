@@ -60,7 +60,7 @@ export const AdminEventContent: FC = () => {
 					<PreviewSection />
 					<DocsSection />
 					<GallerySection />
-					<AdminControllers outLink={`/${AdminRoute.AdminHome}`} variant='2' />
+					<AdminControllers outLink={AdminRoute.AdminHome} variant='2' />
 				</form>
 			</FormProvider>
 		</AdminContent>

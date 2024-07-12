@@ -59,7 +59,7 @@ export const AdminCommunityHistory: FC = () => {
 								isTextarea
 							/>
 						</AdminSection>
-						<AdminControllers outLink={`/${AdminRoute.AdminHome}`} />
+						<AdminControllers outLink={AdminRoute.AdminHome} />
 					</form>
 				</FormProvider>
 			</AdminContent>

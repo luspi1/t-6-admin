@@ -64,7 +64,7 @@ export const AdminCommunityContacts: FC = () => {
 						<PhoneSection />
 						<EmailsSection />
 						<LinksSection />
-						<AdminControllers outLink={`/${AdminRoute.AdminHome}`} />
+						<AdminControllers outLink={AdminRoute.AdminHome} />
 					</form>
 				</FormProvider>
 			</AdminContent>
