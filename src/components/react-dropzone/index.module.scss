@@ -8,8 +8,8 @@
 }
 
 .dropzoneArea {
-  width: 230px;
-  height: 108px;
+  width: 400px;
+  height: 153px;
   border: 1px dashed #7B7B7B;
   background-color: #ffffff;
   border-radius: 5px;
@@ -17,13 +17,30 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
+
+  @media (max-width: 550px) {
+    width: 100%;
+  }
+
+  svg {
+    min-width: 34px;
+    width: 34px;
+    height: 24px;
+    margin-bottom: 10px;
+  }
 
   p {
     text-align: center;
-    max-width: 182px;
     font-size: 14px;
+    line-height: 1.2;
   }
+
+  .btnPrompt {
+    color: #91969A;
+    margin-bottom: 4px;
+  }
+
 }
 
 .dropzoneWrapper {
@@ -38,7 +55,6 @@
 
 .dropzoneController {
   max-width: 210px;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

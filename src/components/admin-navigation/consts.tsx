@@ -19,17 +19,25 @@ export const adminMenuItems: NavigationItem[] = [
 		icon: <AdminProfileIconSvg />,
 	},
 	{
-		title: 'Новости',
+		title: 'Сайт',
 		icon: <AdminNewsIconSvg />,
-		link: 'admin-news',
+		link: 'admin-site',
 		childItems: [
 			{
 				title: 'Список новостей',
 				link: 'news-list',
 			},
 			{
-				title: 'Добавить новость',
-				link: 'add-news',
+				title: 'Видеолента',
+				link: 'videotape-list',
+			},
+			{
+				title: 'Заявки',
+				link: 'requests-list',
+			},
+			{
+				title: 'Контент',
+				link: 'about-content',
 			},
 		],
 	},

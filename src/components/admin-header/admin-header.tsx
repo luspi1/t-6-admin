@@ -8,13 +8,14 @@ import { SearchSvg } from 'src/UI/icons/searchSVG'
 
 import styles from './index.module.scss'
 import { AdminRoute } from 'src/routes/admin-routes/consts'
+import { AdminLogoSvg } from 'src/UI/icons/adminLogoSVG'
 
 export const AdminHeader: FC = () => {
 	return (
 		<header className={styles.adminHeader}>
 			<Container className={styles.adminHeaderContainer} $width='1870px'>
 				<Link className={styles.logoLink} to={AdminRoute.AdminHome}>
-					Т-6
+					<AdminLogoSvg />
 				</Link>
 				<MainInput
 					className={styles.adminSearchInput}

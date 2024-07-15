@@ -3,7 +3,7 @@ import { type TabNavigationItem } from 'src/types/navigation'
 export const oneEventTabs: TabNavigationItem[] = [
 	{
 		title: 'Профиль события',
-		link: '/admin/event-new',
+		link: '/event-new',
 		exact: true,
 	},
 	{

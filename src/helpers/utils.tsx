@@ -79,3 +79,9 @@ export const numberToWord = (num: number) => {
 
 	return numbersMap[num] ?? num
 }
+
+// Кастомный метод валидации для проверки HTML содержимого
+export const isEmptyHtml = (value: string) => {
+	const strippedValue = value.replace(/<[^>]*>/g, '').trim()
+	return strippedValue.length > 0
+}

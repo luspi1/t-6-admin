@@ -3,7 +3,7 @@ import { type TabNavigationItem } from 'src/types/navigation'
 export const profileTabs: TabNavigationItem[] = [
 	{
 		title: 'Профиль',
-		link: '/admin/profile',
+		link: '/profile',
 		exact: true,
 	},
 	{

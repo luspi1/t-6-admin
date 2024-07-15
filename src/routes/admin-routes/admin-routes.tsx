@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import React, { type FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import { AdminRoute } from 'src/routes/admin-routes/consts'
@@ -11,8 +11,12 @@ import { AdminProfileTransport } from 'src/pages/profile-layout/pages/admin-prof
 import { AdminProfileGroups } from 'src/pages/profile-layout/pages/admin-profile-groups/admin-profile-groups'
 import { AdminProfileEvents } from 'src/pages/profile-layout/pages/admin-profile-events/admin-profile-events'
 
-import { AdminNewsList } from 'src/pages/admin-news-list/admin-news-list'
-import { AdminAddNews } from 'src/pages/admin-add-news/admin-add-news'
+import { AdminNewsList } from 'src/pages/admin-site/admin-news-list/admin-news-list'
+import { AdminAddNews } from 'src/pages/admin-site/admin-add-news/admin-add-news'
+import { AdminVideotapeList } from 'src/pages/admin-site/admin-videotape-list/admin-videotape-list'
+import { AdminAddVideo } from 'src/pages/admin-site/admin-add-video/admin-add-video'
+import { AdminRequests } from 'src/pages/admin-site/admin-requests/admin-requests'
+import { AdminAboutContent } from 'src/pages/admin-site/admin-about-content/admin-about-content'
 
 import { AdminCommunityAbout } from 'src/pages/admin-community-about/admin-community-about'
 import { AdminCommunityHistory } from 'src/pages/admin-community-history/admin-community-history'
@@ -96,6 +100,10 @@ export const AdminRoutes: FC = () => {
 
 				<Route path={AdminRoute.AdminNewsList} element={<AdminNewsList />} />
 				<Route path={AdminRoute.AdminAddNews} element={<AdminAddNews />} />
+				<Route path={AdminRoute.AdminVideotapeList} element={<AdminVideotapeList />} />
+				<Route path={AdminRoute.AdminAddVideo} element={<AdminAddVideo />} />
+				<Route path={AdminRoute.AdminRequestList} element={<AdminRequests />} />
+				<Route path={AdminRoute.AdminAboutContent} element={<AdminAboutContent />} />
 
 				<Route path={AdminRoute.AdminCommunityAbout} element={<AdminCommunityAbout />} />
 				<Route path={AdminRoute.AdminCommunityHistory} element={<AdminCommunityHistory />} />

@@ -3,7 +3,7 @@ import { type TabNavigationItem } from 'src/types/navigation'
 export const eventRostersSubtabs: TabNavigationItem[] = [
 	{
 		title: 'Посетители',
-		link: '/admin/event-new/event-rosters',
+		link: '/event-new/event-rosters',
 		exact: true,
 	},
 	{

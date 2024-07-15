@@ -133,17 +133,14 @@ export const ReactDropzone: FC<ReactDropzoneProps> = ({
 						<input {...register(name)} {...getInputProps()} />
 						<DropzoneBgSvg />
 						<p>{prompt ?? 'Перетащите файл на это поле'}</p>
-					</div>
-
-					<div className={styles.dropzoneController} onClick={open}>
-						{customUploadBtn ?? (
-							<>
-								<p>Файл еще не загружен Перетащите его на поле слева или нажмите на ссылку</p>
-								<AdminButton as='button' type='button' $padding='9.5px 0' $outlined>
+						<p className={styles.btnPrompt}>или нажмите на кнопку</p>
+						<div className={styles.dropzoneController} onClick={open}>
+							{customUploadBtn ?? (
+								<AdminButton as='button' type='button' $padding='9.5px 44px' $outlined>
 									{uploadBtnText}
 								</AdminButton>
-							</>
-						)}
+							)}
+						</div>
 					</div>
 				</div>
 			)}
