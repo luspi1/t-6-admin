@@ -1,6 +1,10 @@
 import { type ReactNode } from 'react'
 import { type SelOption } from 'src/types/select'
 import { type DateTimeFormatOptions } from 'src/types/date'
+
+import { format } from 'date-fns'
+import { ru } from 'date-fns/locale'
+
 // утилитарная функция для кастомного селекта
 export const getValue = (value: string, options: SelOption[]) => {
 	return value ? options.find((option) => option.value === value) : ''
@@ -84,4 +88,9 @@ export const numberToWord = (num: number) => {
 export const isEmptyHtml = (value: string) => {
 	const strippedValue = value.replace(/<[^>]*>/g, '').trim()
 	return strippedValue.length > 0
+}
+
+// функция форматирования даты с локализацией
+export const mainFormatDate = (date: Date, dateFormat = 'dd MMMM yyyy'): string => {
+	return format(date, dateFormat, { locale: ru })
 }

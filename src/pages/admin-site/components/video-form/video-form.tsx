@@ -1,6 +1,9 @@
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
-import { type AddNewsInputs, addNewsSchema } from 'src/pages/admin-site/components/news-form/schema'
 import { yupResolver } from '@hookform/resolvers/yup'
+import {
+	type AddNewsVideosInputs,
+	addNewsVideosSchema,
+} from 'src/pages/admin-site/components/video-form/schema'
 
 import { ControlledInput } from 'src/components/controlled-input/controlled-input'
 import { ControlledDateInput } from 'src/components/controlled-date-input/controlled-date-input'
@@ -11,34 +14,33 @@ import { AdminRoute } from 'src/routes/admin-routes/consts'
 
 import styles from './index.module.scss'
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
-import { QuillEditor } from 'src/components/quill-editor/quill-editor'
 export const VideoForm = () => {
-	const methods = useForm<AddNewsInputs>({
+	const methods = useForm<AddNewsVideosInputs>({
 		mode: 'onBlur',
-		resolver: yupResolver(addNewsSchema),
+		resolver: yupResolver(addNewsVideosSchema),
 		defaultValues: {
-			newsImage: [],
+			newsVideosImage: [],
 		},
 	})
 
-	const onSubmit: SubmitHandler<AddNewsInputs> = (data) => {
+	const onSubmit: SubmitHandler<AddNewsVideosInputs> = (data) => {
 		console.log(data)
 	}
 	return (
 		<FormProvider {...methods}>
 			<form
-				className={styles.newsForm}
+				className={styles.newsVideosForm}
 				onSubmit={methods.handleSubmit(onSubmit)}
 				noValidate
 				autoComplete='off'
 			>
-				<div className={styles.newsFormWrapper}>
-					<div className={styles.newsFormLeftFields}>
+				<div className={styles.newsVideosFormWrapper}>
+					<div className={styles.newsVideosFormLeftFields}>
 						<ControlledInput
 							className={adminStyles.adminMainInput}
-							name='newsTitle'
-							placeholder='Заголовок'
-							label='Заголовок новости (не больше 200 символов)'
+							name='videoTitle'
+							placeholder='Название'
+							label='Название записи (не больше 200 символов)'
 							height='56px'
 							isTextarea
 						/>
@@ -52,40 +54,42 @@ export const VideoForm = () => {
 
 						<ControlledInput
 							className={adminStyles.adminMainInput}
-							name='tags'
-							label='Введите теги через запятую. Не более 5 тегов на 1 новость'
-						/>
-						<ControlledSelect
-							className={adminStyles.adminSelect}
-							label='Галерея'
-							selectOptions={[
-								{ label: 'Не выбрано', value: '0' },
-								{ label: 'Галерея 1', value: '1' },
-								{ label: 'Галерея 2', value: '2' },
-								{ label: 'Галерея 3', value: '3' },
-							]}
-							name='gallery'
+							name='shortDesc'
+							label='Краткое описание (хранится в базе)'
+							height='78px'
+							isTextarea
 						/>
 						<ControlledInput
 							className={adminStyles.adminMainInput}
-							name='shortDesc'
-							label='Краткое описание (анонс новости)'
+							name='videoLink'
+							placeholder='Введите текст ссылки на запись'
+							label='Ссылка на видео ВК'
+						/>
+						<ControlledInput
+							className={adminStyles.adminMainInput}
+							name='codeText'
+							label='Текст кода для вставки (экспорт из ВК)'
+							height='78px'
 							isTextarea
 						/>
+						<div className={styles.newsVideosDropzoneWrapper}>
+							<ReactDropzone
+								className={styles.newsVideosDropzone}
+								label='Основное изображение'
+								name='newsVideosImage'
+								prompt='Перетащите изображение на это поле'
+								accept={{ 'image/png': ['.png'], 'image/jpeg': ['.jpeg'] }}
+							/>
+							<p>
+								Если Вас не устраивает изображение, автоматически подставляемое видеохостингом, Вы
+								можете загрузить свой вариант.
+							</p>
+						</div>
 					</div>
 					<div>
 						<ControlledSelect
 							className={styles.asideSelect}
-							label='Ключевая новость?'
-							selectOptions={[
-								{ label: 'Нет', value: '0' },
-								{ label: 'Да', value: '1' },
-							]}
-							name='isMain'
-						/>
-						<ControlledSelect
-							className={styles.asideSelect}
-							label='Спрятать новость?'
+							label='Спрятать запись?'
 							selectOptions={[
 								{ label: 'Нет', value: '0' },
 								{ label: 'Да', value: '1' },
@@ -95,37 +99,11 @@ export const VideoForm = () => {
 					</div>
 				</div>
 
-				<QuillEditor name='newsText' label='Текст новости' />
-
-				<div className={styles.newsFormBottom}>
-					<ReactDropzone
-						className={styles.newsDropzone}
-						label='Основное изображение'
-						name='newsImage'
-						prompt='Перетащите изображение на это поле'
-						accept={{ 'image/png': ['.png'], 'image/jpeg': ['.jpeg'] }}
-					/>
-
-					<h3>SEO (продвижение сайта)</h3>
-					<ControlledInput
-						className={adminStyles.adminMainInput}
-						name='seoDesc'
-						placeholder='Описание'
-						label='Введите описание (description)'
-					/>
-					<ControlledInput
-						className={adminStyles.adminMainInput}
-						name='seoWords'
-						placeholder='Ключевые слова'
-						label='Введите ключевые слова (keywords)'
-					/>
-				</div>
-
 				<div className={adminStyles.adminBtns}>
 					<AdminButton as='button' type='submit'>
 						Сохранить
 					</AdminButton>
-					<AdminButton to={`/${AdminRoute.AdminNewsList}`} as='link' $danger>
+					<AdminButton to={`/${AdminRoute.AdminVideotapeList}`} as='link' $danger>
 						Отменить
 					</AdminButton>
 				</div>

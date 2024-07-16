@@ -17,6 +17,7 @@ import { Pagination } from 'src/components/pagination/pagination'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 import styles from './index.module.scss'
+import { mainFormatDate } from 'src/helpers/utils'
 
 export const NewsTable = () => {
 	const cx = cnBind.bind(styles)
@@ -66,7 +67,7 @@ export const NewsTable = () => {
 				<a className={cx({ _hidden: newsEl.hidden })} key={newsEl.id} href='#'>
 					{newsEl.title}
 				</a>,
-				newsEl.date,
+				mainFormatDate(newsEl.date, 'yyyy-MM-dd'),
 				<span key={newsEl.id}>{newsEl.tags.join(', ')}</span>,
 				<input key={newsEl.id} type='checkbox' defaultChecked={newsEl.hidden} />,
 				<input key={newsEl.id} type='checkbox' defaultChecked={newsEl.main} />,

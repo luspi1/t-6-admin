@@ -9,6 +9,7 @@ type AdminButtonProps = {
 	$outlined?: boolean
 	$danger?: boolean
 	$common?: boolean
+	$icon?: boolean
 	$margin?: string
 	$padding?: string
 	$maxWidth?: string
@@ -30,6 +31,14 @@ const AdminButtonStyled = styled.button<AdminButtonProps>`
 	color: #ffffff;
 	border: 1px solid transparent;
 
+	${({ $icon }) =>
+		$icon &&
+		`
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		width: max-content;
+  `}
 	${({ $outlined }) =>
 		$outlined &&
 		`

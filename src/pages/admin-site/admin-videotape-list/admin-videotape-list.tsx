@@ -6,8 +6,8 @@ import { VideosTable } from 'src/pages/admin-site/admin-videotape-list/component
 
 import { AdminRoute } from 'src/routes/admin-routes/consts'
 
-import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusIconSvg } from 'src/UI/icons/plusIconSVG'
+import { AdminButton } from 'src/UI/AdminButton/AdminButton'
 
 import styles from './index.module.scss'
 
@@ -19,15 +19,27 @@ export const AdminVideotapeList: FC = () => {
 			</Helmet>
 			<h1>Видеолента</h1>
 			<AdminContent className={styles.videotapeListContent} $height='1100px'>
-				<MainButton className={styles.topVideoBtn} to={`/${AdminRoute.AdminAddVideo}`} as='route'>
-					<PlusIconSvg />
+				<AdminButton
+					as='link'
+					to={`/${AdminRoute.AdminAddVideo}`}
+					$icon
+					$padding='8px'
+					$margin='0 0 20px 0'
+				>
+					<PlusIconSvg fill='#FFFFFF' />
 					Добавить видео
-				</MainButton>
+				</AdminButton>
 				<VideosTable />
-				<MainButton to={`/${AdminRoute.AdminAddVideo}`} as='route'>
-					<PlusIconSvg />
+				<AdminButton
+					as='link'
+					to={`/${AdminRoute.AdminAddVideo}`}
+					$icon
+					$padding='8px'
+					$margin='20px 0 0 0'
+				>
+					<PlusIconSvg fill='#FFFFFF' />
 					Добавить видео
-				</MainButton>
+				</AdminButton>
 			</AdminContent>
 		</>
 	)

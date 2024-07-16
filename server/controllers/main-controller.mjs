@@ -4,6 +4,7 @@ import { objects } from '../mockData/objects.mjs'
 import { projects } from '../mockData/projects.mjs'
 import { news } from '../mockData/news.mjs'
 import { events } from '../mockData/events.mjs'
+import { newsVideos } from "../mockData/newsVideos.mjs";
 
 export const getRegions = (req, res) => {
 	const { q } = req.query
@@ -242,4 +243,39 @@ export const getEventById = (req, res) => {
 	const foundEvent = events.find((eventItem) => eventItem.id === eventId)
 
 	res.status(200).json(foundEvent)
+}
+
+export const getNewsVideos = (req, res) => {
+	const { q, y } = req.query
+
+	const filteredVideos = newsVideos
+		.filter((el) => {
+			if (y) {
+				return (String(new Date(el.date).getFullYear()) === y && el.title.toLowerCase().includes(q))
+			}
+			return el.title.toLowerCase().includes(q)
+		})
+
+
+	res.status(200).json(filteredVideos)
+}
+
+export const getNewsVideoById = (req, res) => {
+	const newsVideoId = req.params.id
+	const foundVideoNews = newsVideos.find((newsVideoItem) => newsVideoItem.id === newsVideoId )
+
+	res.status(200).json(foundVideoNews)
+}
+
+export const deleteNewsVideo = (req, res) => {
+	const videoId = req.params.id
+	let deleteIdx
+	newsVideos.forEach((el, idx) => {
+		if (el.id === videoId) {
+			deleteIdx = idx
+		}
+	})
+	newsVideos.splice(deleteIdx, 1)
+
+	res.status(200).json(deleteIdx)
 }

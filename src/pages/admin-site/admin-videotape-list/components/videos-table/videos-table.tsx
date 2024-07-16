@@ -1,17 +1,17 @@
-import { type NewsItem } from 'src/types/news'
+import { type NewsVideoItem } from 'src/types/news'
 
 import { useState } from 'react'
+import cnBind from 'classnames/bind'
 
+import { mainFormatDate } from 'src/helpers/utils'
 import { useDebounce } from 'src/hooks/debounce/debounce'
 import { TableSearch } from 'src/modules/table-search/table-search'
 import { Loader } from 'src/components/loader/loader'
 import { CustomTable } from 'src/components/custom-table/custom-table'
-import { useDeleteNewsByIdMutation, useGetAllNewsQuery } from 'src/store/news/news.api'
+import { useDeleteNewsVideoByIdMutation, useGetAllNewsVideosQuery } from 'src/store/news/news.api'
 
 import { AdminSearchIconSvg } from 'src/UI/icons/adminSearchIconSVG'
 import { AdminDateIconSvg } from 'src/UI/icons/adminDateIconSVG'
-
-import cnBind from 'classnames/bind'
 
 import { Pagination } from 'src/components/pagination/pagination'
 
@@ -21,14 +21,14 @@ import styles from './index.module.scss'
 export const VideosTable = () => {
 	const cx = cnBind.bind(styles)
 
-	const [searchNews, setSearchNews] = useState<string>('')
-	const [deleteNewsById] = useDeleteNewsByIdMutation()
-	const debouncedSearch = useDebounce(searchNews)
+	const [searchNewsVideo, setSearchNewsVideo] = useState<string>('')
+	const [deleteNewsVideoById] = useDeleteNewsVideoByIdMutation()
+	const debouncedSearch = useDebounce(searchNewsVideo)
 
-	const { data: newsList, isLoading } = useGetAllNewsQuery({ search: debouncedSearch })
+	const { data: newsVideosList, isLoading } = useGetAllNewsVideosQuery({ search: debouncedSearch })
 
 	const searchNewsHandler = (value: string) => {
-		setSearchNews(value)
+		setSearchNewsVideo(value)
 	}
 
 	const tableTitles = [
@@ -59,21 +59,21 @@ export const VideosTable = () => {
 		'',
 	]
 
-	const formatNewsTableData = (newsData: NewsItem[]) => {
-		return newsData.map((newsEl, idx) => {
+	const formatVideosTableData = (newsVideoData: NewsVideoItem[]) => {
+		return newsVideoData.map((newsVideoEl, idx) => {
 			return [
 				String(idx + 1),
-				<a className={cx({ _hidden: newsEl.hidden })} key={newsEl.id} href='#'>
-					{newsEl.title}
+				<a className={cx({ _hidden: newsVideoEl.hidden })} key={newsVideoEl.id} href='#'>
+					{newsVideoEl.title}
 				</a>,
-				newsEl.date,
-				<span key={newsEl.id}>{newsEl.tags.join(', ')}</span>,
-				<input key={newsEl.id} type='checkbox' defaultChecked={newsEl.hidden} />,
-				<input key={newsEl.id} type='checkbox' defaultChecked={newsEl.main} />,
+				mainFormatDate(newsVideoEl.date, 'yyyy-MM-dd'),
+				<span key={newsVideoEl.id}>{newsVideoEl.tags.join(', ')}</span>,
+				<input key={newsVideoEl.id} type='checkbox' defaultChecked={newsVideoEl.hidden} />,
+				<input key={newsVideoEl.id} type='checkbox' defaultChecked={newsVideoEl.main} />,
 				<button
-					className={styles.removeNewsBtn}
-					onClick={async () => await deleteNewsById(newsEl.id)}
-					key={newsEl.id}
+					className={styles.removeVideosBtn}
+					onClick={async () => await deleteNewsVideoById(newsVideoEl.id)}
+					key={newsVideoEl.id}
 					type='button'
 				>
 					Удалить
@@ -82,13 +82,13 @@ export const VideosTable = () => {
 		})
 	}
 
-	if (isLoading || !newsList) return <Loader />
+	if (isLoading || !newsVideosList) return <Loader />
 
 	return (
 		<>
 			<CustomTable
 				className={styles.videosTable}
-				cellsData={formatNewsTableData(newsList)}
+				cellsData={formatVideosTableData(newsVideosList)}
 				colTitles={tableTitles}
 			/>
 			<Pagination

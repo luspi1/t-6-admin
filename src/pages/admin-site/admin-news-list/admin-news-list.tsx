@@ -6,10 +6,10 @@ import { NewsTable } from 'src/pages/admin-site/admin-news-list/components/news-
 
 import { AdminRoute } from 'src/routes/admin-routes/consts'
 
-import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusIconSvg } from 'src/UI/icons/plusIconSVG'
 
 import styles from './index.module.scss'
+import { AdminButton } from 'src/UI/AdminButton/AdminButton'
 
 export const AdminNewsList: FC = () => {
 	return (
@@ -19,15 +19,27 @@ export const AdminNewsList: FC = () => {
 			</Helmet>
 			<h1>Новости</h1>
 			<AdminContent className={styles.newsListContent} $height='1100px'>
-				<MainButton className={styles.topAddNewsBtn} to={`/${AdminRoute.AdminAddNews}`} as='route'>
-					<PlusIconSvg />
+				<AdminButton
+					as='link'
+					to={`/${AdminRoute.AdminAddNews}`}
+					$icon
+					$padding='8px'
+					$margin='0 0 20px 0'
+				>
+					<PlusIconSvg fill='#FFFFFF' />
 					Добавить новость
-				</MainButton>
+				</AdminButton>
 				<NewsTable />
-				<MainButton to={`/${AdminRoute.AdminAddNews}`} as='route'>
-					<PlusIconSvg />
+				<AdminButton
+					as='link'
+					to={`/${AdminRoute.AdminAddNews}`}
+					$icon
+					$padding='8px'
+					$margin='20px 0 0 0'
+				>
+					<PlusIconSvg fill='#FFFFFF' />
 					Добавить новость
-				</MainButton>
+				</AdminButton>
 			</AdminContent>
 		</>
 	)

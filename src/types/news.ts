@@ -3,7 +3,7 @@ export type NewsItem = {
 	title: string
 	shortTitle: string
 	shortDesc: string
-	date: string
+	date: Date
 	tags: string[]
 	gallery: string
 	hidden: boolean
@@ -12,4 +12,13 @@ export type NewsItem = {
 	imgGallery: string[]
 	textNews: string[]
 	desc: string
+}
+
+export type NewsVideoItem = {
+	id: string
+	title: string
+	date: Date
+	tags: string[]
+	hidden: boolean
+	main: boolean
 }

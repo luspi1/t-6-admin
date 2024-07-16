@@ -1,8 +1,8 @@
 @import "src/assets/styles/vars";
 
 
-.newsForm {
-  max-width: 1140px;
+.newsVideosForm {
+  max-width: 1125px;
 
   h3 {
     @include opensans-bold;
@@ -11,10 +11,9 @@
   }
 }
 
-.newsFormWrapper {
+.newsVideosFormWrapper {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   width: 100%;
   gap: 20px;
 
@@ -23,21 +22,13 @@
   }
 }
 
-.newsFormLeftFields {
+.newsVideosFormLeftFields {
   flex-grow: 1;
   max-width: 830px;
 }
 
-.newsFormBottom {
-  max-width: 830px;
-  margin-bottom: 70px;
-}
-
 .asideSelect {
-  margin-bottom: 31px;
-  @media (max-width: 1024px) {
-    margin-bottom: 20px;
-  }
+  min-width: 127px;
   :global {
     .react-dropdown-select {
       max-width: 100px;
@@ -45,7 +36,33 @@
   }
 }
 
-.newsDropzone {
+
+.newsVideosDropzone {
+  flex-grow: 1;
+  max-width: 400px;
+  width: 100%;
+}
+
+.newsVideosDropzoneWrapper {
   margin-top: 20px;
-  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 40px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #E3DDDD;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+  }
+
+  & > p {
+    max-width: 270px;
+    font-size: 14px;
+    font-weight: 300;
+    padding-top: 25px;
+  }
+
 }
